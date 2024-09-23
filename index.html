@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+        body {
+            font-family: "Archivo Black", sans-serif;
+            background-color: black;
+            color: white;
+            margin-top: 0px;
+        }
+
+        header {
+            background-color: black;
+            margin-top: 0px;
+            width: 100%;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+            z-index: 1000;
+
+        }
+
+        header h1{
+            margin-bottom: 0px;
+        }
+
+        header p {
+            margin-top: 0px;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 0;
+        }
+        
+        #history {
+            -webkit-text-stroke: 1px black;
+
+            background-image: url(BMWclassic.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        #cars {
+            /* color:white; */
+            background-image: url(mStripe.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        #motorcycles {
+            background-image: url(bmwBoxer.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-text-stroke: 1px black;
+        }
+
+        .content {
+            align-items: center;
+            margin: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+      <h1>BMW</h1>
+      <p>The Ultimate Driving Machine</p>
+    </header>
+
+    <main>
+        <section id="history"> 
+            <div class="content">
+                <!-- <img src="classicBMW.jpg"/> -->
+                <h2>The History of BMW</h2>
+                <p class="reveal-type">
+                Founded in 1916, BMW started as an aircraft engine manufacturer in Germany. After World War I, the company shifted its focus to motorcycles and automobiles. BMW’s first motorcycle, the R32, was introduced in 1923, and in 1928, they produced their first car. Over the decades, BMW has evolved into a leading luxury brand known for blending performance and engineering with elegance.
+                </p>
+            </div>
+        </section> 
+
+        <section id="achievements">
+            <div class="content">
+                <h2>Key Milestons in BMW's History</h2>
+                <ol class="reveal-type">
+                    <li><strong>1916</strong>: BMW was founded as an aircraft engine manufacturer.</li>
+                    <li><strong>1923</strong>: The first BMW motorcycle, the R32, was produced.</li>
+                    <li><strong>1962</strong>: The launch of the “New Class” of sedans, which saved BMW from financial difficulties.</li>
+                    <li><strong>1975</strong>: Introduction of the first BMW 3 Series, a game-changer in luxury cars.</li>
+                    <li><strong>1999</strong>: Acquisition of the British brands MINI and Rolls-Royce.</li>
+                    <li><strong>2013</strong>: BMW launched its first all-electric car, the BMW i3.</li>
+                </ol>
+            </div>
+        </section> 
+
+        <section id="cars">
+            <div class="content">
+                <h3>Iconic BMW Models</h3>
+                <ul class="reveal-type">
+                    <li><strong>BMW 3 Series</strong>: Known for its balance of performance and luxury, it has been BMW's best-selling model since 1975.</li>
+                    <li><strong>BMW M3</strong>: The high-performance version of the 3 Series, known for dominating both streets and racetracks.</li>
+                    <li><strong>BMW i8</strong>: A plug-in hybrid sports car that blends futuristic design with environmental innovation.</li>
+                </ul>
+            </div>    
+        </section> 
+
+        <section id="motorcycles">
+            <div class="content">
+                <h3>Popular BMW Motorcycles</h3>
+                <p class="reveal-type">BMW is also renowned for its motorcycles, known for their reliability, power, and advanced engineering. Here are some of the most popular models:</p>
+                <ul class="reveal-type">
+                    <li><strong>BMW R1200GS</strong>: One of the most successful adventure motorcycles in the world, known for its versatility and long-distance touring capabilities.</li>
+                    <li><strong>BMW S1000RR</strong>: A high-performance superbike that has set the standard for speed and agility on the racetrack.</li>
+                    <li><strong>BMW R nineT</strong>: A retro-style roadster with modern performance, beloved by enthusiasts for its design and customization potential.</li>
+                    <li><strong>BMW K1600</strong>: A luxurious touring bike, equipped with a powerful 6-cylinder engine and high-tech features for long-distance travel.</li>
+                </ul>
+            </div>
+        </section> 
+
+        <section>
+            <h3>Gallery Heading Title</h3>
+
+            <img src="https://placecats.com/300/200" alt="Description" />
+            <img src="https://placecats.com/300/200" alt="Description" />
+            <img src="https://placecats.com/300/200" alt="Description" />
+        </section>
+    </main>
+
+    <footer>
+      <p>Created by Leo Antonevich</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+        const splitTypes = document.querySelectorAll('.reveal-type')
+        splitTypes.forEach((char, i) => {
+            const text = new SplitType(char, {types: 'chars, words'})
+
+            gsap.from(text.chars,{
+                scrollTrigger: {
+                    trigger: char,
+                    start: 'top 80%',
+                    end: 'top 55%',
+                    scrub: true,
+                    markers: false
+                },
+                opacity: 0.2,
+                stagger: 0.1
+            })
+        })
+        
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+        console.log(e)
+        })
+
+        function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+
+    </script>
+
+</body>
+</html>
