@@ -12,6 +12,7 @@
             background-color: black;
             color: white;
             margin-top: 0px;
+            overflow-x: hidden;
         }
 
         header {
@@ -25,10 +26,9 @@
             justify-content: center;
             padding: 0px;
             z-index: 1000;
-
         }
 
-        header h1{
+        header h1 {
             margin-bottom: 0px;
         }
 
@@ -36,44 +36,287 @@
             margin-top: 0px;
         }
 
-        section {
-            height: 100vh;
+        section:not(.hScroll) {
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 0;
         }
-        
-        #history {
-            -webkit-text-stroke: 1px black;
 
+        #front-page {
+            background-image: url('FrontPage.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #front-page p {
+            color: white;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 5px black;
+           margin-top: 90vh;;
+        }
+
+        #history {
+            height: 100vh;
             background-image: url(BMWclassic.jpg);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
         }
 
+        #history .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #history h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        /* Achievements Section */
+        #achievements {
+            height: 100vh;
+            background-color: #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            position: relative;
+        }
+
+        #achievements .content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        #achievements h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 3rem;
+        }
+
+        /* Timeline Styling */
+        #achievements ol {
+            position: relative;
+            counter-reset: timeline-counter;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #achievements ol li {
+            margin-bottom: 50px;
+            padding-left: 40px;
+            position: relative;
+            color: white;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: transform 0.4s, opacity 0.4s;
+        }
+
+        #achievements ol li.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #achievements ol li::before {
+            content: counter(timeline-counter);
+            counter-increment: timeline-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: white;
+            color: black;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+        }
+
+        #achievements ol li::after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 40px;
+            width: 2px;
+            height: 100%;
+            background-color: white;
+        }
+
+        #achievements ol li:hover::before {
+            background-color: #0077FF;
+            color: white;
+        }
+
+        #achievements ol li:hover {
+            transform: scale(1.05);
+        }
+
+        #achievements ol li:last-child::after {
+            display: none;
+        }
+
+        /* Cars Section */
         #cars {
-            /* color:white; */
             background-image: url(mStripe.jpg);
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size: cover;
+            background-attachment: fixed;
+            padding: 50px;
+            min-height: 100vh;
         }
 
+        #cars .content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        #cars h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        #cars ul li {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        #cars ul li:hover {
+            transform: translateX(15px);
+        }
+
+        /* Motorcycles Section */
         #motorcycles {
             background-image: url(bmwBoxer.jpg);
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size: cover;
-            -webkit-text-stroke: 1px black;
+            background-attachment: fixed;
+            padding: 50px;
+            min-height: 100vh;
         }
 
+        #motorcycles .content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        #motorcycles h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        #motorcycles p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        #motorcycles p:hover {
+            transform: translateX(15px);
+        }
+
+        #motorcycles ul li {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        #motorcycles ul li:hover {
+            transform: translateX(15px);
+        }
+
+        /* Smooth Scrolling */
         .content {
             align-items: center;
             margin: 20px;
+        }
+
+        section.hScroll {
+            height: 100vw;
+            width: 100vh;
+            padding-right: 10px;
+            padding-left: 10px;
+            background: black;
+            overflow: hidden auto;
+            transform-origin: right top;
+            transform: rotate(-90deg) translateY(-100vh);
+            
+
 
         }
+
+        .hScroll_block {
+            width: calc(100vh - 40px);
+            height: calc(100vh - 40px);
+            background: black;
+            margin-bottom: 20px;
+            position: relative;
+            transform-origin: left top;
+            transform: rotate(90deg) translateY(calc(-100vh + 40px));
+
+
+
+        }
+
+        .hscroll_block:last-child {
+            margin: 0;
+        }
+
+        .hScroll_block .background {
+            position: absolute;
+            top:0; bottom: 0; right: 0; left: 0;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .hScroll_block:nth-child(1) .background{
+           background-image: url(bmw1.jpg); 
+        }
+
+        .hScroll_block:nth-child(2) .background{
+           background-image: url(bmw2.jpg); 
+        }
+
+        .hScroll_block:nth-child(3) .background{
+           background-image: url(bmw3.jpg); 
+        }
+
+        .hScroll_block:nth-child(4) .background{
+           background-image: url(bmw4.jpg); 
+        }
+
+        ::-webkit-scrollbar{
+            width: 0;
+            height: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -83,19 +326,25 @@
     </header>
 
     <main>
+        <!-- Front Page Section -->
+        <section id="front-page">
+            <p>Scroll Down</p>
+        </section>
+
+        <!-- History Section -->
         <section id="history"> 
             <div class="content">
-                <!-- <img src="classicBMW.jpg"/> -->
                 <h2>The History of BMW</h2>
                 <p class="reveal-type">
-                Founded in 1916, BMW started as an aircraft engine manufacturer in Germany. After World War I, the company shifted its focus to motorcycles and automobiles. BMW’s first motorcycle, the R32, was introduced in 1923, and in 1928, they produced their first car. Over the decades, BMW has evolved into a leading luxury brand known for blending performance and engineering with elegance.
+                    Founded in 1916, BMW started as an aircraft engine manufacturer in Germany. After World War I, the company shifted its focus to motorcycles and automobiles. BMW’s first motorcycle, the R32, was introduced in 1923, and in 1928, they produced their first car. Over the decades, BMW has evolved into a leading luxury brand known for blending performance and engineering with elegance.
                 </p>
             </div>
         </section> 
 
+        <!-- Achievements (Timeline) Section -->
         <section id="achievements">
             <div class="content">
-                <h2>Key Milestons in BMW's History</h2>
+                <h2>Key Milestones in BMW's History</h2>
                 <ol class="reveal-type">
                     <li><strong>1916</strong>: BMW was founded as an aircraft engine manufacturer.</li>
                     <li><strong>1923</strong>: The first BMW motorcycle, the R32, was produced.</li>
@@ -107,6 +356,7 @@
             </div>
         </section> 
 
+        <!-- Cars Section -->
         <section id="cars">
             <div class="content">
                 <h3>Iconic BMW Models</h3>
@@ -118,6 +368,7 @@
             </div>    
         </section> 
 
+        <!-- Motorcycles Section -->
         <section id="motorcycles">
             <div class="content">
                 <h3>Popular BMW Motorcycles</h3>
@@ -131,12 +382,19 @@
             </div>
         </section> 
 
-        <section>
-            <h3>Gallery Heading Title</h3>
-
-            <img src="https://placecats.com/300/200" alt="Description" />
-            <img src="https://placecats.com/300/200" alt="Description" />
-            <img src="https://placecats.com/300/200" alt="Description" />
+        <section class="hScroll">
+            <div class="hScroll_block">
+                <div class="background"></div>
+            </div>
+            <div class="hScroll_block">
+                <div class="background"></div>
+            </div>
+            <div class="hScroll_block">
+                <div class="background"></div>
+            </div>
+            <div class="hScroll_block">
+                <div class="background"></div>
+            </div>
         </section>
     </main>
 
@@ -146,43 +404,22 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
-    
+
     <script>
-        gsap.registerPlugin(ScrollTrigger)
-        const splitTypes = document.querySelectorAll('.reveal-type')
-        splitTypes.forEach((char, i) => {
-            const text = new SplitType(char, {types: 'chars, words'})
+        gsap.registerPlugin(ScrollTrigger);
 
-            gsap.from(text.chars,{
+        const timelineItems = document.querySelectorAll('#achievements ol li');
+
+        timelineItems.forEach((item, index) => {
+            gsap.to(item, {
                 scrollTrigger: {
-                    trigger: char,
+                    trigger: item,
                     start: 'top 80%',
-                    end: 'top 55%',
-                    scrub: true,
-                    markers: false
+                    toggleClass: 'visible',
                 },
-                opacity: 0.2,
-                stagger: 0.1
-            })
-        })
-        
-        const lenis = new Lenis()
-
-        lenis.on('scroll', (e) => {
-        console.log(e)
-        })
-
-        function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-        }
-
-        requestAnimationFrame(raf)
-
-
+                duration: 0.5,
+            });
+        });
     </script>
-
 </body>
 </html>
